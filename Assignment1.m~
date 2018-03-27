@@ -1,0 +1,18 @@
+%{
+...
+Function that reads in the data from a CIFAR-10 batch file.
+Returns: Image and label data in separate files. 
+...
+%}
+
+% Load Data
+[X, Y, y] = LoadBatch('data_batch_1.mat');
+
+
+
+function [X, Y; y] = LoadBatch(fname)
+    A = load(fname);
+    X = A.data;
+    Y = A.labels;
+    y = 3;
+end
