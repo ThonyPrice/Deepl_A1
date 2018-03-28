@@ -1,10 +1,6 @@
 function [ X, Y, y ] = LoadBatch( fname )
-%{
-...
-Function that reads in the data from a CIFAR-10 batch file.
-Returns: Image and label data in separate files. 
-...
-%}
+%LOADBATCH: Read data from CIFAR-10 batch file. 
+% Return: Image and label data in separate files. 
 
     A = load(fname);
     X = A.data;

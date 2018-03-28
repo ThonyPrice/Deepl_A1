@@ -1,18 +1,9 @@
 function P = EvaluateClassifier( X, W, b )
-%EVALUATECLASSIFIER Evaluate network function
+%EVALUATECLASSIFIER Evaluate network function (Eq.1 & Eq.2)
 
-    %size(X)
-    %size(W)
-    %size(b)
-    %size(W*X)
-
-    % Equation 1
-    tmp = W*X;
-    [~, N] = size(tmp);
+    [~, N] = size(W*X);
     b = repmat(b,1,N);
-    s = tmp + b;
-
-    % Equation 2
+    s = W*X + b;
     P = softmax(s);
     
 end

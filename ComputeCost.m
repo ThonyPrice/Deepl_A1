@@ -1,10 +1,11 @@
 function J = ComputeCost( X, Y, W, b, lambda )
-%COMPUTECOST Summary of this function goes here
-%   Detailed explanation goes here
+%COMPUTECOST Compute cross entropy loss + regularization (Eq.5)
 
-    % Equation 5
-    
-    one = ;
+    [~, n] = size(X);
+    P = EvaluateClassifier(X, W, b);
+    sum1 = sum(-log(diag(Y'*P)));
+    W = W.^2;
+    J = (1/n) * sum1 + lambda * sum(W(:));
 
 end
 
