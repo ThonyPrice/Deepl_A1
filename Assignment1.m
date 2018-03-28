@@ -10,7 +10,7 @@ K = 10;
 N = 10000;
 d = 3072;
 lambda = 0;
-GDparams = GDparams(100, .01, 20);
+GDparams = GDparams(100, .01, 40);
 
 % Testing popose only
 rng(400);
@@ -47,6 +47,14 @@ for epoch = epochs
     msg = [msg [' Cost: ', num2str(cost(epoch))]];
     msg = [msg [' Accuracy: ', num2str(accuracy(epoch))]];
     disp(msg);
+end
+
+% Visualize weight matrix
+
+for i=1:10
+    im = reshape(W(i, :), 32, 32, 3);
+    s_im{i} = (im - min(im(:))) / (max(im(:)) - min(im(:)));
+    s_im{i} = permute(s_im{i}, [2, 1, 3]);
 end
 
 
