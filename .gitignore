@@ -9,6 +9,9 @@ __pycache__/
 # Mac storage
 .DS_Store
 
+# Data folder
+/Datasets
+
 # Distribution / packaging
 .Python
 env/
